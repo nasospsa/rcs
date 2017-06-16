@@ -1,0 +1,19 @@
+<% movies.forEach(function(data) { %>
+<div class="media">
+  <% if (data.poster_path) { %>
+  <div class="media-left">
+    <a href="#">
+      <img class="media-object" src="https://image.tmdb.org/t/p/w500/<%= data.poster_path %>" alt="..." width="120" />
+    </a>
+  </div>
+  <% } %>
+  <div class="media-body">
+    <h4 class="media-heading">
+      <a href="https://www.themoviedb.org/movie/<%= data.id %>" target="_blank"><%= data.title %></a>
+      <span class="badge"><%= data.vote_average %>
+    </h4>
+    <p><%= data.release_date.substring(0,4) %></p>
+    <p><%= data.overview || '-' %></p>
+  </div>
+</div>
+<% }) %>
